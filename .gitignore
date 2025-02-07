@@ -3,9 +3,4 @@
 ################################################################################
 
 /.vs
-/android/app/src/debug
-/android/app/src/main/java/com/miclub/app
-/android/app/src/main/res
-/android/gradle/wrapper
-/android/react-settings-plugin
 /node_modules
