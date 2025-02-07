@@ -1,0 +1,256 @@
+import { DrawerItem } from '@react-navigation/drawer';
+import { Drawer } from 'antd';
+import {
+    StyleSheet, Dimensions
+} from 'react-native';
+const livnunTotalHeight = Dimensions.get('window').height;
+const livnunTotalWidth = Dimensions.get('window').width;
+export const ioStyles = StyleSheet.create({
+    PageContainer: {
+        width: livnunTotalWidth,
+        height: livnunTotalHeight * 0.95,
+    },
+    DataContainer: {
+        height: '87%',
+    },
+    CmdLineContainer: {
+        height: '13%',
+    },
+    HeaderBackLeft: {
+        width: '80%',
+    },
+    HeaderBackRight: {
+        width: '20%',
+    },
+    HeaderLogin: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '20%',
+        backgroundColor: '#B3B2B2'
+    },
+    BodyLogin: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '80%'
+    },
+    Header: {
+        backgroundColor: '#B3B2B2',
+    },
+    HeaderTitle: {
+        fontFamily: 'gotham_black',
+        fontSize: 20,
+    },
+    HeaderIconContainer: {
+        margin: 'auto'
+    },
+    HeaderIcon: {
+        height: livnunTotalHeight * 0.1,
+        width: livnunTotalWidth * 0.1,
+    },
+    Logo: {
+        height: '50%',
+        width: '80%',
+        resizeMode: 'contain',
+        flex: 1
+    },
+    Avatar: {
+        height: '30%',
+        width: '30%',
+        resizeMode: 'contain',
+        flex: 1
+    },
+    CmdLine: {
+        justifyContent: "center",
+        alignItems: 'center',
+    },
+    Center: {
+        justifyContent: "center",
+        alignItems: 'center',
+        flex: 1,
+    },
+    CheckBox: {
+        height: livnunTotalHeight * 0.7,
+        width: livnunTotalHeight * 0.7,
+    },
+
+    BodyContent: {
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        marginLeft: '3%',
+    },
+
+    /*TEXT*/
+    InputContainer: {
+        borderBottomColor: '#F5FCFF',
+        borderBottomWidth: 1,
+        width: livnunTotalWidth * 0.75,
+        height: livnunTotalHeight * 0.05,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        marginTop: livnunTotalHeight * 0.02,
+    },
+
+    TextIcon: {
+        marginLeft: livnunTotalWidth * 0.02,
+    },
+    TextInput: {
+        marginLeft: 3,
+        color: '#212529',
+        fontFamily: 'gotham_black',
+        fontSize: 20,
+        width: '95%'
+    },
+    Text1: {
+        color: '#212529',
+        fontFamily: 'gotham_black',
+        fontSize: 20,
+    },
+    Placeholder: {
+        color: '#212529',
+        marginLeft: 10,
+        fontFamily: 'gotham_black',
+        fontSize: 20,
+    },
+    Errmsg: {
+        justifyContent: "center",
+        alignItems: 'center',
+        color: '#FF0000',
+        fontFamily: 'gotham_bold',
+        fontSize: 20,
+    },
+    /*GRILLA*/
+    GridRowS: {
+        height: livnunTotalHeight * 0.07,
+        flexDirection: 'row',
+        borderBottomColor: '#d6d5d5',
+        alignItems: "center",
+        borderBottomWidth: 1,
+    },
+    GridRowM: {
+        height: livnunTotalHeight * 0.1,
+        flexDirection: 'row',
+        borderBottomColor: '#d6d5d5',
+        alignItems: "center",
+        borderBottomWidth: 1,
+    },
+    GridColL: {
+        width: '70%',
+    },
+    GridColS: {
+        width: '15%',
+    },
+    GridColM: {
+        width: '50%',
+    },
+    /*Combo*/
+    ComboS: {
+        width: '70%',
+        height: '10%',
+    },
+    ComboM: {
+        width: '70%',
+        height: '30%',
+    },
+    ComboL: {
+        width: '70%',
+        height: '50%',
+    },
+
+    Gris: {
+        backgroundColor: '#B3B2B2'
+    },
+    ButtonContainer: {
+        backgroundColor: '#B3B2B2',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: livnunTotalWidth * 0.75,
+        height: livnunTotalHeight * 0.05,
+        marginTop: livnunTotalHeight * 0.02,
+    },
+    WhiteText: {
+        fontSize: 15,
+        fontFamily: 'gotham_black',
+    },
+    Drawer: {
+        flex: 1,
+    },
+    MenuHeader: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '15%',
+    },
+    DrawerItem: {
+        fontFamily: 'gotham_black',
+        fontSize: 20,
+    },
+    MenuLogo: {
+        height: '100%',
+        resizeMode: 'contain',
+    },
+    TextContainerGrisCenter: {
+        backgroundColor: '#d6d5d5',
+        justifyContent: 'center',
+        alignItems: "center",
+        height: livnunTotalHeight * 0.05,
+        marginTop: livnunTotalHeight * 0.02,
+    },
+    TextContainer: {
+        borderBottomColor: '#F5FCFF',
+        height: livnunTotalHeight * 0.05,
+        marginTop: livnunTotalHeight * 0.02,
+    },
+    ErrorLoginContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: livnunTotalWidth * 0.75,
+        marginTop: livnunTotalHeight * 0.02,
+    },
+    ImgContainer: {
+        marginTop: livnunTotalHeight * 0.02,
+        flexDirection: 'row',
+        alignItems: "center",
+    },
+    /*CAMARA */
+    CameraContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    FocusContainer: {
+        width: livnunTotalWidth * 0.5,
+        height: livnunTotalWidth * 0.5,
+        borderRadius: 100,
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    CameraButtonsContainer: {
+        width: livnunTotalWidth * 0.25,
+        height: livnunTotalWidth * 0.25,
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    CameraButton: {
+        width: livnunTotalWidth * 0.75,
+        height: livnunTotalWidth * 0.75,
+        borderRadius: 150,
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    CameraMessage: {
+        textAlign: 'center',
+        paddingBottom: 10,
+    },
+    /*TAB*/
+    TabBar: {
+        backgroundColor: '#B3B2B2',
+        
+    },
+    TabBarItem: {
+        fontFamily: 'gotham_black',
+        color: '#212529',
+        fontSize: 20,
+    },
+});
