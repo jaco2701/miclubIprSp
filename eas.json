@@ -8,9 +8,6 @@
 			"developmentClient": true,
 			"distribution": "internal",
 			"withoutCredentials": true,
-			"android": {
-				"buildType": "apk"
-			}
 		},
 		"preview": {
 			"distribution": "internal",
@@ -18,7 +15,10 @@
 		},
 		"production": {
 			"autoIncrement": true,
-			"withoutCredentials": true
+			"withoutCredentials": true,
+			"android": {
+				"buildType": "apk"
+			}
 		}
 	},
 	"submit": {
