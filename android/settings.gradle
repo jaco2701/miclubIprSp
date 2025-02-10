@@ -44,7 +44,7 @@ if (getRNMinorVersion() >= 75) {
   }
 }
 
-rootProject.name = 'miclubIPRSP'
+rootProject.name = 'IPR Sporting Club'
 
 dependencyResolutionManagement {
   versionCatalogs {

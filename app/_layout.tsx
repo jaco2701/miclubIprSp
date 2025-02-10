@@ -5,7 +5,8 @@ import { ioStyles } from '@/constants/Styles';
 import { AntDesign } from '@expo/vector-icons';
 import { Store } from '@/components/redux/Reducer';
 import { Provider } from 'react-redux';
-
+import { coAssets } from '../model/Config';
+import { Image, TouchableOpacity, View } from 'react-native'
 export default function Layout() {
 
     return (
@@ -18,7 +19,10 @@ export default function Layout() {
                         drawerStyle: ioStyles.Drawer,
                         drawerLabelStyle: ioStyles.DrawerItem,
                         drawerActiveTintColor: '#000',
-                        drawerLabel: () => null
+                        headerRight: () => (
+                            <Image source={coAssets['imgLogo2']} style={ioStyles.DrawerIcon} />
+                        ),
+                        drawerLabel: () => null,
                     }}
                 >
                     <Drawer.Screen

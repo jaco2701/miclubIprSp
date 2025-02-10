@@ -27,7 +27,7 @@
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="myapp"/>
-        <data android:scheme="com.miclub.app"/>
+        <data android:scheme="com.jaco2701.iprspapp"/>
         <data android:scheme="exp+iprsp-app"/>
       </intent-filter>
     </activity>

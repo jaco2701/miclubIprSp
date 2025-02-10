@@ -1,4 +1,4 @@
-package com.miclub.app
+package com.jaco2701.iprspapp
 
 import android.app.Application
 import android.content.res.Configuration

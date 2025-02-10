@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { ioStyles } from '@/constants/Styles';
 import { AntDesign } from '@expo/vector-icons';
-import { ioSetting, mivnumIconSize, mivnumQRSize } from '@/model/Config';
+import { ioSetting, mivnumIconSizeM, mivnumQRSize } from '@/model/Config';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { McState } from '../model/State';
@@ -72,7 +72,7 @@ export default function CarnetScreen() {
                 </View>
                 <View style={ioStyles.ImgContainer}>
                     <TouchableHighlight onPress={() => setmivblnCamera(true)}>
-                            <AntDesign name="camera" style={ioStyles.TextIcon} color="black" size={mivnumIconSize} />
+                            <AntDesign name="camera" style={ioStyles.TextIcon} color="black" size={mivnumIconSizeM} />
                     </TouchableHighlight>
                 </View>
                 <View style={ioStyles.GridRowS}>

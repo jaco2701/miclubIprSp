@@ -183,6 +183,10 @@ export const ioStyles = StyleSheet.create({
         fontFamily: 'gotham_black',
         fontSize: 20,
     },
+    DrawerIcon: {
+        height: '80%', 
+        fontSize: 20,
+    },
     MenuLogo: {
         height: '100%',
         resizeMode: 'contain',
@@ -209,6 +213,19 @@ export const ioStyles = StyleSheet.create({
         marginTop: livnunTotalHeight * 0.02,
         flexDirection: 'row',
         alignItems: "center",
+    },
+    Circle: {
+        borderRadius: 100,
+        overflow: 'hidden',
+    },
+    RedButton: {
+        backgroundColor: '#FF0000',
+        borderColor: '#d6d5d5',
+        flexDirection: 'row',
+        width: livnunTotalWidth * 0.15,
+        height: livnunTotalWidth * 0.15,
+        borderRadius: 100,
+        borderWidth: 10,
     },
     /*CAMARA */
     CameraContainer: {

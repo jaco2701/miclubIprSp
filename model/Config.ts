@@ -74,16 +74,13 @@ export const ioSetting = {
 
 export const coAssets = {
     imgLogo: require('../assets/logo.png'),
-    icon: require('../assets/icon.png'),
-    gymSI: require('../assets/siga.png'),
-    gymNO: require('../assets/stop.png'),
-    estacionamientoSI: require('../assets/estacionar.png'),
-    estacionamientoNO: require('../assets/noestacionar.png')
+    imgLogo2: require('../assets/logo2.png'),
 }
 export const mivnumAdviceSize = Dimensions.get('window').height * .3;
-export const mivnumFotoCarnetWidth = Dimensions.get('window').width * .5;
+export const mivnumFotoCarnetWidth = Dimensions.get('window').width * .4;
 export const mivnumFotoCarnetHeight = Dimensions.get('window').width * .5;
 export const mivnumQRSize = Dimensions.get('window').width * .3;
 export const mivnumIconSize = Dimensions.get('window').height * .04;
+export const mivnumIconSizeM = Dimensions.get('window').height * .08;
 export const mivnumCmdSize = Dimensions.get('window').height * .06;
 export const mivnumIconSizeMin = Dimensions.get('window').height * .01;

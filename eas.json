@@ -6,16 +6,13 @@
 	"build": {
 		"development": {
 			"developmentClient": true,
-			"distribution": "internal",
-			"withoutCredentials": true,
+			"distribution": "internal"
 		},
 		"preview": {
-			"distribution": "internal",
-			"withoutCredentials": true
+			"distribution": "internal"
 		},
 		"production": {
 			"autoIncrement": true,
-			"withoutCredentials": true,
 			"android": {
 				"buildType": "apk"
 			}

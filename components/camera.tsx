@@ -63,12 +63,14 @@ export default function CameraComponent({ onPictureTaken }: CameraComponentProps
         });
     }
     return (
-        <View style={ioStyles.CameraContainer}>
+        <View style={ioStyles.Center}>
+        <View style={ioStyles.Circle}>
             <CameraView style={ioStyles.FocusContainer} facing={'front'} ref={mioCamera}>
             </CameraView>
+            </View>
             <View style={ioStyles.CameraButtonsContainer}>
-                <TouchableOpacity style={ioStyles.CameraButton} onPress={take}>
-                    <AntDesign name="downcircleo" style={ioStyles.TextIcon} color="black" size={mivnumIconSize} />
+                <TouchableOpacity style={ioStyles.RedButton} onPress={take}>
+                        <Text></Text>
                 </TouchableOpacity>
             </View>
         </View>
