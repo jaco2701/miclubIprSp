@@ -20,3 +20,11 @@ export class MobileData {
     ivstrToken?: string;
     ivnroStaticVersion?: number;
 }
+export class MobileChgData {
+    strcorreo?: string;
+    strDNI?: string;
+    strnombre?: string;
+    strdomicilio?: string;
+    strtelefono?: string;
+    strmovil?: string;
+}

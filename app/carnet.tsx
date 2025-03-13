@@ -23,11 +23,11 @@ export default function CarnetScreen() {
     const mioData = useSelector(selectIoData);
     const mioNavigation = useNavigation();
     const mcoTsocio = useSelector(selectFilteredTsocio);
-    const [mivstrLoad, setmivblnLoad] = useState(String);
+    const [mivblnLoading, setmivblnLoading] = useState(true);
     const [mivblnCamera, setmivblnCamera] = useState(false);
     useEffect(() => {
         mioNavigation.setOptions({ headerShown: true });
-        setmivblnLoad("OK");
+        setmivblnLoading(false);
     }, [mioNavigation]);
     const handlePictureTaken = (vivstrB64: string) => {
         const lioData = {
@@ -43,16 +43,14 @@ export default function CarnetScreen() {
         DoEvent(EEventType.SaveSocio, [lioData], mioDispatch)
             .then((vioData) => {
                 setmivblnCamera(false);
+                mioNavigation.setOptions({ headerShown: true });
             });
     }
 
-    if (!mivstrLoad) {
-        return (
-            <View style={ioStyles.PageContainer}>
-                <ActivityIndicator size="large" color="#0000ff" />
-                <Text>={ioSetting.coResources['lioL_loading']}</Text>
-            </View>
-        );
+    if (mivblnLoading) {
+        <View style={ioStyles.PageContainer}>
+            <ActivityIndicator color="black" size="large" />
+        </View>
     }
     if (mivblnCamera) {
         return (
@@ -76,13 +74,13 @@ export default function CarnetScreen() {
                     </TouchableHighlight>
                 </View>
                 <View style={ioStyles.GridRowS}>
-                    <Text style={ioStyles.TextInput}>Nro.Socio: {mioData?.ioSocio?.ioDcModel?.numsocio}</Text>
+                    <Text style={ioStyles.Text}>Nro.Socio: {mioData?.ioSocio?.ioDcModel?.numsocio}</Text>
                 </View>
                 <View style={ioStyles.GridRowS}>
-                    <Text style={ioStyles.TextInput}>{mioData?.ioSocio?.ioDcModel?.strnombre}</Text>
+                    <Text style={ioStyles.Text}>{mioData?.ioSocio?.ioDcModel?.strnombre}</Text>
                 </View>
                 <View style={ioStyles.GridRowS}>
-                    <Text style={ioStyles.TextInput}>Categoria: {mcoTsocio?.filter(x => x.numid == mioData?.ioSocio?.ioDcModel?.nrotipo)[0]?.strdesc ?? ''}</Text>
+                    <Text style={ioStyles.Text}>Categoria: {mcoTsocio?.filter(x => x.numid == mioData?.ioSocio?.ioDcModel?.nrotipo)[0]?.strdesc ?? ''}</Text>
                 </View>
                 <View style={ioStyles.ImgContainer}>
                     <QRCode

@@ -12,14 +12,14 @@ import { selectFilteredFmedic, selectFilteredMediciones, selectIoData } from '..
 export default function medicioneScreen() {
     const mioNavigation = useNavigation();
     const mioData = useSelector(selectIoData);
-    const [mivblnLoad, setmivblnLoad] = useState(false);
+    const [mivblnLoading, setmivblnLoading] = useState(true);
     const [index, setIndex] = useState(0);
     const mcoMediciones = useSelector(selectFilteredMediciones);
     const mcoFliaMediciones = useSelector(selectFilteredFmedic);
     const [mivnumSelectedMedicion, setmivnumSelectedMedicion] = useState(-1);
     useEffect(() => {
         mioNavigation.setOptions({ headerShown: true, title: 'Mis Mediciones' });
-        setmivblnLoad(true);
+        setmivblnLoading(false);
     }, [mioNavigation]);
     useFocusEffect(
         useCallback(() => {
@@ -59,7 +59,7 @@ export default function medicioneScreen() {
                     renderItem={({ item }) => (
                         <TouchableHighlight onPress={() => setmivnumSelectedMedicion(item.ioDcModel?.nummedicion || 0)}>
                             <View style={ioStyles.GridRowS}>
-                                <Text style={ioStyles.TextInput}> {formatDateToYYYYMMDD(item.ioDcModel?.dtmfecha)}: {mcoMediciones?.filter(x => x.numid == item.ioDcModel?.numtipomedicion)[0]?.strdesc || ''}</Text>
+                                <Text style={ioStyles.Text}> {formatDateToYYYYMMDD(item.ioDcModel?.dtmfecha)}: {mcoMediciones?.filter(x => x.numid == item.ioDcModel?.numtipomedicion)[0]?.strdesc || ''}</Text>
                             </View>
                         </TouchableHighlight>
                     )}
@@ -78,11 +78,10 @@ export default function medicioneScreen() {
             style={ioStyles.TabBar}
         />
     );
-    if (!mivblnLoad) {
+    if (mivblnLoading) {
         return (
-            <View style={ioStyles.PageContainer}>
-                <ActivityIndicator size="large" color="#0000ff" />
-                <Text>={ioSetting.coResources['lioL_loading']}</Text>
+            <View style={ioStyles.CameraContainer}>
+                <ActivityIndicator color="black" size="large" />
             </View>
         );
     }
@@ -100,7 +99,7 @@ export default function medicioneScreen() {
                     data={mioData?.coMediciones?.filter(x => x.ioDcModel?.nummedicion == mivnumSelectedMedicion)[0].coTomas}
                     renderItem={({ item }) => (
                         <View style={ioStyles.GridRowM}>
-                            <Text style={ioStyles.TextInput}>Toma {item.nromediciontoma}: {item.strvalormedicion} {mcoMediciones?.filter(x => x.numid == lioMedicion?.ioDcModel?.numtipomedicion)[0]?.strdesc1 || ''}</Text>
+                            <Text style={ioStyles.Text}>Toma {item.nromediciontoma}: {item.strvalormedicion} {mcoMediciones?.filter(x => x.numid == lioMedicion?.ioDcModel?.numtipomedicion)[0]?.strdesc1 || ''}</Text>
                         </View>)} />
             </View >
         );

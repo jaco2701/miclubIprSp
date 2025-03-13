@@ -21,7 +21,7 @@ import React from 'react';
 export default function LoginScreen() {
     const mioNavigation = useNavigation();
     const mioDispatch = useDispatch();
-    const [mivblnLoad, setmivblnLoad] = useState(false);
+    const [mivblnLoading, setmivblnLoading] = useState(true);
     const [mivstrEmail, setmivstrEmail] = useState(String);
     const [mivstrPass, setmivstrPass] = useState(String);
     const [mivstrException, setmivstrException] = useState(String);
@@ -29,19 +29,18 @@ export default function LoginScreen() {
         mioNavigation.setOptions({ headerShown: false });
         DoEvent(EEventType.Logout, [], mioDispatch)
             .then(() => {
-                setmivblnLoad(true)
+                setmivblnLoading(false)
             })
-            .catch((vioMsg) => setmivblnLoad(false));
+            .catch((vioMsg) => setmivblnLoading(false));
     }, [mioNavigation]);
-    if (!mivblnLoad) {
+    if (mivblnLoading) {
         return (
-            <View style={ioStyles.PageContainer}>
-                <ActivityIndicator size="large" color="#0000ff" />
-                <Text>={ioSetting.coResources['lioL_loading']}</Text>
+            <View style={ioStyles.CameraContainer}>
+                <ActivityIndicator color="black" size="large" />
             </View>
         );
     }
-    return (<>
+   return (<>
         <View style={ioStyles.PageContainer} >
             <View style={ioStyles.HeaderLogin}>
                 <Image source={coAssets['imgLogo']} style={ioStyles.Logo} />
@@ -50,7 +49,7 @@ export default function LoginScreen() {
                 <View style={ioStyles.BodyLogin}>
                     <View style={ioStyles.InputContainer}>
                         <AntDesign name="user" color="black" size={mivnumIconSize} />
-                        <TextInput style={ioStyles.TextInput}
+                        <TextInput style={ioStyles.Text}
                             value={mivstrEmail}
                             placeholder={ioSetting.coResources['lioL_user']}
                             placeholderTextColor='#B3B2B2'
@@ -59,7 +58,7 @@ export default function LoginScreen() {
                     </View>
                     <View style={ioStyles.InputContainer}>
                         <AntDesign name="lock" color="black" size={mivnumIconSize} />
-                        <TextInput style={ioStyles.TextInput}
+                        <TextInput style={ioStyles.Text}
                             value={mivstrPass}
                             placeholder={ioSetting.coResources['lioL_pass']}
                             placeholderTextColor='#B3B2B2'

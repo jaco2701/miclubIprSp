@@ -13,9 +13,7 @@ export const ioStyles = StyleSheet.create({
     DataContainer: {
         height: '87%',
     },
-    CmdLineContainer: {
-        height: '13%',
-    },
+
     HeaderBackLeft: {
         width: '80%',
     },
@@ -59,10 +57,6 @@ export const ioStyles = StyleSheet.create({
         resizeMode: 'contain',
         flex: 1
     },
-    CmdLine: {
-        justifyContent: "center",
-        alignItems: 'center',
-    },
     Center: {
         justifyContent: "center",
         alignItems: 'center',
@@ -77,6 +71,11 @@ export const ioStyles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         marginLeft: '3%',
+    },
+    BodyContentRight: {
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
+        marginRight: '3%',
     },
 
     /*TEXT*/
@@ -93,14 +92,23 @@ export const ioStyles = StyleSheet.create({
     TextIcon: {
         marginLeft: livnunTotalWidth * 0.02,
     },
-    TextInput: {
-        marginLeft: 3,
+    Text: {
+        marginLeft: livnunTotalWidth * 0.02,
         color: '#212529',
         fontFamily: 'gotham_black',
         fontSize: 20,
-        width: '95%'
+        overflow: 'visible',
     },
-    Text1: {
+    TextInput: {
+        color: '#212529',
+        fontFamily: 'gotham_black',
+        fontSize: 20,
+        overflow: 'visible',
+        borderBottomColor: '#212529',
+        borderBottomWidth: 1,
+        marginLeft: livnunTotalWidth * 0.02,
+     },
+    TextSinTitulo: {
         color: '#212529',
         fontFamily: 'gotham_black',
         fontSize: 20,
@@ -125,6 +133,7 @@ export const ioStyles = StyleSheet.create({
         borderBottomColor: '#d6d5d5',
         alignItems: "center",
         borderBottomWidth: 1,
+        
     },
     GridRowM: {
         height: livnunTotalHeight * 0.1,
@@ -141,6 +150,15 @@ export const ioStyles = StyleSheet.create({
     },
     GridColM: {
         width: '50%',
+    },
+    GridRowEdtTitle: {
+        flexDirection: 'row',
+        alignItems: "center",
+    },
+    GridRowEdtField: {
+        flexDirection: 'row',
+        borderBottomColor: '#d6d5d5',
+        borderBottomWidth: 1,
     },
     /*Combo*/
     ComboS: {
@@ -171,6 +189,8 @@ export const ioStyles = StyleSheet.create({
         fontSize: 15,
         fontFamily: 'gotham_black',
     },
+
+    /*DRAWER*/
     Drawer: {
         flex: 1,
     },
@@ -184,9 +204,29 @@ export const ioStyles = StyleSheet.create({
         fontSize: 20,
     },
     DrawerIcon: {
-        height: '80%', 
-        fontSize: 20,
+        marginRight: livnunTotalHeight * 0.02,
     },
+    /*Command*/
+   CmdContainer: {
+        alignItems: 'flex-end',
+      // height: livnunTotalHeight * 0.001,
+       position: 'absolute',
+       right: livnunTotalWidth * 0.08,
+       bottom: livnunTotalWidth * 0.2,
+       zIndex: 1,
+    },
+    Cmd: {
+        borderColor: '#212529',
+        backgroundColor: '#B3B2B2',
+        width: livnunTotalWidth * 0.15,   
+        overflow: 'visible',
+        height: livnunTotalWidth * 0.15,
+        borderWidth:  livnunTotalWidth * 0.005,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
     MenuLogo: {
         height: '100%',
         resizeMode: 'contain',
@@ -229,7 +269,6 @@ export const ioStyles = StyleSheet.create({
     },
     /*CAMARA */
     CameraContainer: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },

@@ -39,19 +39,24 @@ export function DoEvent(vieAppEventType: EEventType, vioParams: any, vioDispatch
                     let lioDB: realmDB = new realmDB();
                     lioDB.Get()
                         .then((vivstrMobileData) => {
-                            let lioMobileData: MobileData = JSON.parse(vivstrMobileData);
-                            //Log('lioMobileData', JSON.stringify(lioMobileData));
-                            if (lioMobileData == undefined || lioMobileData.ioSocio == undefined)
+                            const lioData: MobileData = {
+                                ...JSON.parse(vivstrMobileData),
+                                ioSocio: {
+                                    ...JSON.parse(vivstrMobileData).ioSocio,
+                                    iEAction : EAction.GetMobileData
+                                }
+                            };
+                            if (lioData == undefined || lioData.ioSocio == undefined)
                                 reject("2Login");
                             else {
-                                lioMobileData.ioSocio.iEAction = EAction.GetMobileData;
-                                ApiService('POST', EAuthType.Token, "Action", lioMobileData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrEntityName: "Socio", ioBrObject: lioMobileData.ioSocio })
+                                vioDispatch(ToData(lioData));
+                                resolve("OK");
+                                ApiService('POST', EAuthType.Token, "Action", lioData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrEntityName: "Socio", ioBrObject: lioData.ioSocio })
                                     .then((vioMobileData: MobileData) => {
-                                        vioMobileData.ivstrToken = lioMobileData.ivstrToken;
+                                        vioMobileData.ivstrToken = lioData.ivstrToken;
                                         lioDB.Save(vioMobileData);
                                         vioDispatch(ToData(vioMobileData));
-                                        resolve("OK");
-                                        if (lioMobileData.ivnroStaticVersion == vioMobileData.ivnroStaticVersion) {
+                                        if (lioData.ivnroStaticVersion == vioMobileData.ivnroStaticVersion) {
                                             lioDB.Statics()
                                                 .then((vivstrStatics) => {
                                                     let lcoListas: Lista[] = JSON.parse(vivstrStatics);
@@ -62,7 +67,7 @@ export function DoEvent(vieAppEventType: EEventType, vioParams: any, vioDispatch
                                                 });
                                         }
                                         else {
-                                            ApiService('POST', EAuthType.Token, "Static", lioMobileData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrTipo: 'App' })
+                                            ApiService('POST', EAuthType.Token, "Static", lioData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrTipo: 'App' })
                                                 .then((vcoListas: Lista[]) => {
                                                     lioDB.SaveStatics(vcoListas);
                                                     vioDispatch(ToSts(vcoListas));
@@ -73,9 +78,8 @@ export function DoEvent(vieAppEventType: EEventType, vioParams: any, vioDispatch
                                         }
                                     })
                                     .catch((rioE) => {
-                                        //Log('ErrorApi', rioE);
-                                        reject("2Login");
-                                    });
+                                        Log('Api', rioE);
+                                    })
                             }
                         })
                         .catch((rioE) => {
@@ -94,7 +98,6 @@ export function DoEvent(vieAppEventType: EEventType, vioParams: any, vioDispatch
                                 let lioDB: realmDB = new realmDB();
                                 lioDB.Save(lioMobileData)
                                     .then(() => {
-                                        //Log('lioMobileData', JSON.stringify(lioMobileData));
                                         vioDispatch(ToData(lioMobileData));
                                         resolve(lioMobileData);
                                         ApiService('POST', EAuthType.Token, "Static", lioMobileData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrTipo: 'App' })
@@ -124,33 +127,27 @@ export function DoEvent(vieAppEventType: EEventType, vioParams: any, vioDispatch
             case EEventType.SaveSocio:
                 {
                     let lioDB: realmDB = new realmDB();
-                    var lioMobileData: MobileData = vioParams[0];
-                    if (lioMobileData == undefined || lioMobileData.ioSocio == undefined) {
+                    var lioToSaveData: MobileData = vioParams[0];
+                    if (lioToSaveData == undefined || lioToSaveData.ioSocio == undefined) {
                         reject("2Login");
                     }
-                    lioDB.Save(lioMobileData)
-                        .then(() => {
-                            if (lioMobileData == undefined || lioMobileData.ioSocio == undefined)
-                                reject(ioSetting.coResources['lioE_NoLoad']);
-                            else {
-                                lioMobileData.ioSocio.iEAction = EAction.Save;
-                                //          Log('lioMobileData', JSON.stringify(lioMobileData.ioSocio));
-                                ApiService('POST', EAuthType.Token, "Action", lioMobileData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrEntityName: "Socio", ioBrObject: lioMobileData.ioSocio })
-                                    .then(() => {
-                                        lioDB.Save(lioMobileData);
-                                        vioDispatch(ToData(lioMobileData));
-                                        resolve("OK");
-                                    })
-                                    .catch((rioE) => {
-                                        Log('ErrorApi', rioE);
-                                        reject("rioE");
-                                    });
-                            }
-                        })
-                        .catch((rioE) => {
-                            Log('Save', rioE);
-                            reject("rioE");
-                        })
+                    //Log('sava', lioMobileData?.ivstrToken);
+                    if (lioToSaveData == undefined || lioToSaveData.ioSocio == undefined)
+                        reject(ioSetting.coResources['lioE_NoLoad']);
+                    else {
+                        lioToSaveData.ioSocio.iEAction = EAction.Save;
+                        ApiService('POST', EAuthType.Token, "Action", lioToSaveData?.ivstrToken ?? '', { ivnumclub: ioSetting.ivnumClub, ivstrEntityName: "Socio", ioBrObject: lioToSaveData.ioSocio })
+                            .then(() => {
+                                lioDB.Save(lioToSaveData).then(() => {
+                                    vioDispatch(ToData(lioToSaveData));
+                                    resolve("OK");
+                                })
+                            })
+                            .catch((rioE) => {
+                                Log('ErrorApi', rioE);
+                                reject("rioE");
+                            });
+                    }
                     break;
                 }
             case EEventType.Logout:

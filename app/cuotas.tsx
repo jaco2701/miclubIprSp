@@ -22,7 +22,7 @@ import { selectIoData } from '../components/redux/Selectors';
 export default function CuotasScreen() {
     const mioNavigation = useNavigation();
     const mioData = useSelector(selectIoData);
-    const [mivstrLoad, setmivblnLoad] = useState(String);
+    const [mivblnLoading, setmivblnLoading] = useState(true);
     const [mioSelectedItem, setmioSelectedItem] = useState(null);
     const handlePress = (vioItem: any) => {
         setmioSelectedItem(vioItem);
@@ -42,7 +42,7 @@ export default function CuotasScreen() {
     );
     useEffect(() => {
         mioNavigation.setOptions({ headerShown: true });
-        setmivblnLoad("OK");
+        setmivblnLoading(false);
     }, [mioNavigation]);
     useFocusEffect(
         useCallback(() => {
@@ -50,11 +50,10 @@ export default function CuotasScreen() {
             return () => setmioSelectedItem(null);
         }, [])
     );
-    if (!mivstrLoad) {
+    if (mivblnLoading) {
         return (
-            <View style={ioStyles.PageContainer}>
-                <ActivityIndicator size="large" color="#0000ff" />
-                <Text>={ioSetting.coResources['lioL_loading']}</Text>
+            <View style={ioStyles.CameraContainer}>
+                <ActivityIndicator color="black" size="large" />
             </View>
         );
     }
@@ -63,23 +62,23 @@ export default function CuotasScreen() {
             <View style={ioStyles.PageContainer} >
                 <View style={ioStyles.GridRowS}>
                     <AntDesign name="filetext1" style={ioStyles.TextIcon} color='black' size={mivnumIconSize} />
-                    <Text style={ioStyles.TextInput}>Periodo: {Nro2Mes(mioSelectedItem.ivnroMes, 'S')} / {mioSelectedItem.ivnumAnio}</Text>
+                    <Text style={ioStyles.Text}>Periodo: {Nro2Mes(mioSelectedItem.ivnroMes, 'S')} / {mioSelectedItem.ivnumAnio}</Text>
                 </View>
                 <View style={ioStyles.GridRowS}>
                     <AntDesign name="calendar" style={ioStyles.TextIcon} color='black' size={mivnumIconSize} />
-                    <Text style={ioStyles.TextInput}>Fecha de Pago: {formatDateToYYYYMMDD(mioSelectedItem.ivdtmFecha)}</Text>
+                    <Text style={ioStyles.Text}>Fecha de Pago: {formatDateToYYYYMMDD(mioSelectedItem.ivdtmFecha)}</Text>
                 </View>
                 <View style={ioStyles.GridRowS}>
                     <AntDesign name="creditcard" style={ioStyles.TextIcon} color='black' size={mivnumIconSize} />
-                    <Text style={ioStyles.TextInput}>Importe Cuota: {mioSelectedItem.ivvalImporteCuota}</Text>
+                    <Text style={ioStyles.Text}>Importe Cuota: {mioSelectedItem.ivvalImporteCuota}</Text>
                 </View>
                 <View style={ioStyles.GridRowS}>
                     <AntDesign name="creditcard" style={ioStyles.TextIcon} color='black' size={mivnumIconSize} />
-                    <Text style={ioStyles.TextInput}>Importe Pago: {mioSelectedItem.ivvalImportePago}</Text>
+                    <Text style={ioStyles.Text}>Importe Pago: {mioSelectedItem.ivvalImportePago}</Text>
                 </View>
                 <View style={ioStyles.GridRowS}>
                     <AntDesign name="bars" style={ioStyles.TextIcon} color='black' size={mivnumIconSize} />
-                    <Text style={ioStyles.TextInput}>Conceptos:</Text>
+                    <Text style={ioStyles.Text}>Conceptos:</Text>
                 </View>
                 <FlatList
                     numColumns={1}
@@ -89,7 +88,7 @@ export default function CuotasScreen() {
                         )}
                     renderItem={({ item }) => (
                         <View style={ioStyles.GridRowM}>
-                            <Text style={ioStyles.TextInput}>{item.ivstrConcepto}: {item.ivvalConceptoImporte}</Text>
+                            <Text style={ioStyles.Text}>{item.ivstrConcepto}: {item.ivvalConceptoImporte}</Text>
                         </View>)} />
             </View >
         );
@@ -105,7 +104,7 @@ export default function CuotasScreen() {
                         <TouchableHighlight onPress={() => handlePress(item)}>
                             <View style={ioStyles.GridRowM}>
                                 <AntDesign name={item.ivblnPago ? 'checkcircle' : 'closecircle'} style={ioStyles.TextIcon} color={item.ivblnPago ? 'green' : 'red'} size={mivnumIconSize} />
-                                <Text style={ioStyles.TextInput}>{Nro2Mes(item.ivnroMes, 'S')} / {item.ivnumAnio}</Text>
+                                <Text style={ioStyles.Text}>{Nro2Mes(item.ivnroMes, 'S')} / {item.ivnumAnio}</Text>
                             </View>
                         </TouchableHighlight>
                     )}
