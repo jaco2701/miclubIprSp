@@ -21,8 +21,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFilteredDepo, selectFilteredTsocio, selectFilteredTpago, selectIoData } from '../components/redux/Selectors';
 import { Log } from "../helpers/Misc";
 import Toast from 'react-native-toast-message';
-import Spinner from '../components/spinner';
-import SpinnerComponent from '../components/spinner';
 import { MobileChgData } from '../model/MobileData';
 
 export default function HomeScreen() {
@@ -45,6 +43,8 @@ export default function HomeScreen() {
         handleBack
     );
     const chgMode = () => {
+        if (mioChangedData === '' )
+            chgData(0, null);
         if (mivblnEditMode) {
             setmivblnLoading(true)
             var lioChangedData: MobileChgData = JSON.parse(mioChangedData);
@@ -85,7 +85,8 @@ export default function HomeScreen() {
     const chgData = (vivnroData: number, vioChgData: any) => {
         var lioChangedData: MobileChgData = mioChangedData
             ?
-            JSON.parse(mioChangedData) :
+            JSON.parse(mioChangedData)
+            :
             {
                 strnombre: mioData?.ioSocio?.ioDcModel?.strnombre,
                 strcorreo: mioData?.ioSocio?.ioDcModel?.strcorreo,
@@ -95,6 +96,8 @@ export default function HomeScreen() {
                 strmovil: mioData?.ioSocio?.ioDcModel?.strmovil,
             }
         switch (vivnroData) {
+            case 0:
+                break;
             case 1:
                 lioChangedData.strnombre = vioChgData;
                 break;
@@ -224,7 +227,7 @@ export default function HomeScreen() {
                                         </TextInput>
                                     </View>
                                     <View style={ioStyles.GridRowS}>
-                                        <AntDesign name="lock" style={ioStyles.TextIcon}  color="black" size={mivnumIconSize} />
+                                        <AntDesign name="lock" style={ioStyles.TextIcon} color="black" size={mivnumIconSize} />
                                         <Text style={ioStyles.Text}>{ioSetting.coResources['lioL_pass2']}</Text>
                                         <TextInput style={ioStyles.TextInput}
                                             defaultValue='       '
