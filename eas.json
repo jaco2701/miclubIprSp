@@ -10,9 +10,6 @@
 			"developmentClient": true,
 			"android": {
 				"gradleCommand": ":app:assembleDebug"
-			},
-			"ios": {
-				"buildConfiguration": "Debug"
 			}
 		},
 		"preview": {
@@ -24,9 +21,6 @@
 			"withoutCredentials": true,
 			"android": {
 				"buildType": "apk"
-			},
-			"ios": {
-				"withoutCredentials": true
 			}
 		}
 
