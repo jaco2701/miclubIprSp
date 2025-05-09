@@ -1,8 +1,9 @@
 {
-  "cli": {
-    "version": ">= 16.3.1",
-    "appVersionSource": "remote"
-  },
+    "cli": {
+        "version": ">= 16.3.1",
+        "appVersionSource": "remote",
+        "requireCommit": true
+    },
   "build": {
     "development": {
       "developmentClient": true,
