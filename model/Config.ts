@@ -75,6 +75,7 @@ export const ioSetting = {
 export const coAssets = {
     imgLogo: require('../assets/logo.png'),
     imgLogo2: require('../assets/logo2.png'),
+    imgHomeBackground: require('../assets/home.jpg'),
 }
 export const mivnumAdviceSize = Dimensions.get('window').height * .3;
 export const mivnumFotoCarnetWidth = Dimensions.get('window').width * .4;

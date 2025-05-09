@@ -77,7 +77,10 @@ export const ioStyles = StyleSheet.create({
         justifyContent: 'flex-end',
         marginRight: '3%',
     },
-
+    HomeBackground: {
+        flex: 1,
+        resizeMode: 'cover', 
+    },
     /*TEXT*/
     InputContainer: {
         borderBottomColor: '#F5FCFF',

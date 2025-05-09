@@ -27,6 +27,14 @@ export default function Layout() {
                     <Drawer.Screen
                         name="home"
                         options={{
+                            drawerLabel: 'Inicio',
+                            title: 'Inicio',
+                            drawerIcon: () => <AntDesign name="user" size={24} color='#000' />,
+                        }}
+                    />
+                    <Drawer.Screen
+                        name="datos"
+                        options={{
                             drawerLabel: 'Mis Datos',
                             title: 'Mis Datos',
                             drawerIcon: () => <AntDesign name="user" size={24} color='#000' />,
