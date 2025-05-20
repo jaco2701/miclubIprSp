@@ -1,8 +1,8 @@
 {
-    "cli": {
-        "version": ">= 16.3.1",
-        "appVersionSource": "remote"
-    },
+  "cli": {
+    "version": ">= 16.3.1",
+    "appVersionSource": "remote"
+  },
   "build": {
     "development": {
       "developmentClient": true,
@@ -12,10 +12,13 @@
       "distribution": "internal"
     },
     "production": {
-        "autoIncrement": true,
-        "ios": {
-            "image": "macos-sequoia-15.3-xcode-16.2"
-        }
+      "autoIncrement": true,
+      "ios": {
+        "image": "macos-sequoia-15.3-xcode-16.2"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      }
     }
   },
   "submit": {
@@ -24,9 +27,6 @@
         "appleId": "santiagodioplaza@gmail.com",
         "appleTeamId": "4W93DT6F3K",
         "ascAppId": "6744828552"
-      },
-      "android": {
-        "buildType": "app-bundle"
       }
     }
   }
