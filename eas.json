@@ -20,11 +20,14 @@
   },
   "submit": {
     "production": {
-        "ios": {
-            "appleId": "santiagodioplaza@gmail.com",
-            "appleTeamId": "4W93DT6F3K",
-            "ascAppId": "6744828552",
-        }
+      "ios": {
+        "appleId": "santiagodioplaza@gmail.com",
+        "appleTeamId": "4W93DT6F3K",
+        "ascAppId": "6744828552"
+      },
+      "android": {
+        "buildType": "app-bundle"
+      }
     }
   }
 }
