@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "IPR Sporting Club",
-    "slug": "iprsp-app",
+    "slug": "iprsp-app1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.jaco2701.iprspapp",
+      "bundleIdentifier": "com.jaco2701.iprspapp1",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.jaco2701.iprspapp"
+      "package": "com.jaco2701.iprspapp1"
     },
     "web": {
       "bundler": "metro",
@@ -42,7 +42,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "a35ca349-3cbc-4e98-a04c-9d29c927884b"
+        "projectId": "90f7ccc7-d695-44e2-9868-aac6ff8a7635"
       }
     },
     "owner": "jaco2701"

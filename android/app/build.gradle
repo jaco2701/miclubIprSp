@@ -109,9 +109,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.jaco2701.iprspapp'
+    namespace 'com.jaco2701.iprspapp1'
     defaultConfig {
-        applicationId 'com.jaco2701.iprspapp'
+        applicationId 'com.jaco2701.iprspapp1'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
