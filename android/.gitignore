@@ -11,7 +11,6 @@ local.properties
 *.iml
 *.hprof
 .cxx/
-/android
-/ios 
+
 # Bundle artifacts
 *.jsbundle

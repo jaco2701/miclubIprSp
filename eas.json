@@ -5,6 +5,12 @@
   },
   "build": {
     "development": {
+      "autoIncrement": false,
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "development1": {
       "developmentClient": true,
       "distribution": "internal"
     },

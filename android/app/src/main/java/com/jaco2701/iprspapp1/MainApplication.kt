@@ -1,4 +1,4 @@
-package com.jaco2701.iprspapp
+package com.jaco2701.iprspapp1
 
 import android.app.Application
 import android.content.res.Configuration
