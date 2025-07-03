@@ -24,6 +24,7 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
+	  "targetSdkVersion": 35,
       "package": "com.jaco2701.iprspapp1"
     },
     "web": {
